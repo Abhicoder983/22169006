@@ -1,4 +1,4 @@
-# shortener/services.py
+
 
 import logging
 from django.utils import timezone
