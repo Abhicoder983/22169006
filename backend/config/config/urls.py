@@ -17,12 +17,10 @@ Including another URLconf
 # config/urls.py
 
 from django.contrib import admin
-from django.urls import path
-from shortener.views import CreateShortURLView, RedirectShortURLView, URLStatsView
+from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('shorten/', CreateShortURLView.as_view(), name='create-short-url'),
-    path('<str:short_code>/', RedirectShortURLView.as_view(), name='redirect-short-url'),
-    path('shorten/<str:short_code>/stats/', URLStatsView.as_view(), name='url-stats'),
+    path('', include('shortener.urls')),
 ]
+
